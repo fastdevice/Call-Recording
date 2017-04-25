@@ -19,7 +19,7 @@ account/rec \
   account/rec/1009 
 
 
-for each "start recodring," update and insert this url:
+for each "start recording," update and insert this url:
 
 i.e. \
 account = 2125551212 \
