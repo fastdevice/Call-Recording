@@ -3,7 +3,7 @@
 
 index.php assumes that a directory structure exists and index.php is installed in the "kzr" directory. 
 
-for each "start recodring," update and insert this url: \
+for each "start recodring," update and insert this url:
 
 i.e. \
 (main call flow) http://<yourwebhost.com>/2125551212/kzr/index.php?recording=inbound/ \
