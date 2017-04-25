@@ -8,7 +8,7 @@ for each "start recodring," update and insert this url: \
 i.e. \
 (main call flow) http://<yourwebhost.com>/2125551212/kzr/index.php?recording=inbound/ \
 (Start of each extension) http://<yourwebhost.com>/2125551212/kzr/index.php?recording=1001/ \
-(no_match, before global carrier) http://<yourwebhost.com>/2125551212/kzr/index.php?recording=1001/ \
+(no_match, before global carrier) http://<yourwebhost.com>/2125551212/kzr/index.php?recording=1001/ 
 
 account \
 account/kzr \
