@@ -35,3 +35,5 @@ AuthType Basic \
 AuthName "Restricted Access" \
 AuthUserFile /account/rec/.htpasswd \
 Require user username
+
+For those looking for a slick GUI for the front end, I recommend FileRun. It's free for the first three users and then they charge per tier. However, I"m starting to look into the opensource project OwnCloud. It appears to have many of the same features of FileRun and supports connectors to dropbox etc.  
