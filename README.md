@@ -27,6 +27,8 @@ account = 2125551212 \
 (Start of each extension) http://<yourwebhost.com>/2125551212/kzr/index.php?callflow=1001 \
 (no_match, before global carrier) http://<yourwebhost.com>/2125551212/kzr/index.php?callflow=1001 
 
+Front end (client facing public interface)
+
 You may want to include .htaccess so the files will display correclty and be organized.
 You may also want to include the following statments in your .htaccess file to secure it. Please google a howto 
 on creating the .htpasswd file.
