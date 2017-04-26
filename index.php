@@ -65,6 +65,7 @@ removeFiles ("../rec/1009/");
 
 function removeFiles($path) 
 {
+	# Number of days to keep file on server
 	$days = 10;   
 
 error_log ("Look in path : " . $path . "\r\n", 3, './event.log');
