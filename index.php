@@ -13,7 +13,7 @@ error_log ("REQUEST Data callflow : " . $ext . "\r\n", 3, './event.log');
 
   $r = $ext . $rec;
 
-error_log ("Directory : " . $r . "\r\n", 3, './event.log');
+error_log ("Match String : " . $r . "\r\n", 3, './event.log');
   
   # Regex Match String
   $re = '/(10..\/call_recording_(.+)\.mp3)|(inbound\/call_recording_(.+)\.mp3)|(outbound\/call_recording_(.+)\.mp3)/';
