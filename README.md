@@ -23,8 +23,8 @@ for each "start recording," update and insert this url:
 
 i.e. \
 account = 2125551212 \
-(main call flow) http://<yourwebhost.com>/2125551212/kzr/index.php?recording=inbound/ \
-(Start of each extension) http://<yourwebhost.com>/2125551212/kzr/index.php?recording=1001/ \
-(no_match, before global carrier) http://<yourwebhost.com>/2125551212/kzr/index.php?recording=1001/ 
+(main call flow) http://<yourwebhost.com>/2125551212/kzr/index.php?callflow=inbound \
+(Start of each extension) http://<yourwebhost.com>/2125551212/kzr/index.php?callflow=1001 \
+(no_match, before global carrier) http://<yourwebhost.com>/2125551212/kzr/index.php?callflow=1001 
 
 
