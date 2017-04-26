@@ -8,7 +8,7 @@
   $rec = \filter_input(\INPUT_GET, "recording", FILTER_SANITIZE_STRING); 
   $ext = \filter_input(\INPUT_GET, "callflow", FILTER_SANITIZE_STRING); 
 
-error_log ("REQUEST Data recording : " . $r . "\r\n", 3, './event.log');
+error_log ("REQUEST Data recording : " . $rec . "\r\n", 3, './event.log');
 error_log ("REQUEST Data callflow : " . $ext . "\r\n", 3, './event.log');
 
   $r = $ext . $rec;
