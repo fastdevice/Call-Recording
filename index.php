@@ -25,6 +25,7 @@ error_log ("Match String : " . $r . "\r\n", 3, './event.log');
     error_log ("Directory : " . $r . "\r\n", 3, './event.log');
   } 
   else {
+      fclose($putdata);
       error_log ("Error Bad Match : " . $r . "\r\n", 3, './event.log');
       exit(1);
   } 
