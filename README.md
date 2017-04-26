@@ -29,9 +29,9 @@ account = 2125551212 \
 
 You may want to include .htaccess so the files will display correclty and be organized.
 You may also want to include the following statments in your .htaccess file to secure it. Please google a howto 
-on creating the .htpasswd file
+on creating the .htpasswd file.
 
-AuthType Basic
-AuthName "Restricted Access"
-AuthUserFile /account/rec/.htpasswd
+AuthType Basic \
+AuthName "Restricted Access" \
+AuthUserFile /account/rec/.htpasswd \
 Require user username
