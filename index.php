@@ -1,5 +1,8 @@
 <?php
 
+/* Valid variables provided by 2600hz
+   recording, from, to, caller_id_name, caller_id_number, call_id, cdr_id, interaction_id, account_id
+*/
 
 /* PUT data comes in on the stdin stream */
   $putdata = fopen("php://input", "r");
