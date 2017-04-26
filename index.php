@@ -2,55 +2,63 @@
 
 
 /* PUT data comes in on the stdin stream */
-  $putdata = fopen("php://input", "r"); 
-  $r = $_REQUEST["recording"];
+  $putdata = fopen("php://input", "r");
 
-  # Match and load filename into array  
-  $re = '/(10..\/call_recording_(.+)\.mp3)|(inbound\/call_recording_(.+)\.mp3)|(outbound\/call_recording_(.+)\.mp3)/';
+  # Get REQUEST Data
+  $r = \filter_input(\INPUT_GET, "recording", FILTER_SANITIZE_STRING); 
+  $ext = \filter_input(\INPUT_GET, "callflow", FILTER_SANITIZE_STRING); 
+
+error_log ("REQUEST Data recording : " . $r . "\r\n", 3, './event.log');
+error_log ("REQUEST Data callflow : " . $ext . "\r\n", 3, './event.log');
+  
+  # Regex Match String
+  # $re = '/(10..\/call_recording_(.+)\.mp3)|(inbound\/call_recording_(.+)\.mp3)|(outbound\/call_recording_(.+)\.mp3)/';
+  $re = '/(call_recording_(.+)\.mp3)|(inbound\/call_recording_(.+)\.mp3)|(outbound\/call_recording_(.+)\.mp3)/';
   preg_match_all($re, $r, $matches, PREG_SET_ORDER,0);
-  $r = $matches[0][0];
+  $r = $ext . $matches[0][0];
 
-error_log ("Filename : " . $matches[0][0] . "\r\n", 3, './event.log');
+error_log ("Audio Filename : " . $matches[0][0] . "\r\n", 3, './event.log');
+error_log ("Directory : " . $r . "\r\n", 3, './event.log');
 
   /* Open a file for writing */
+ // $fp = fopen("../$r", "w");
   $fp = fopen("../rec/$r", "w");
 
   /* Read the data 1 KB at a time and write to the file */
   while ($data = fread($putdata, 1024))
     fwrite($fp, $data); 
- 
+
   /* Close the streams */
   fclose($fp);
   fclose($putdata);
 error_log ("Close file for writing : " . $r. "\r\n", 3, './event.log');
 error_log ("File Size : " . filesize("../rec/$r") . "\r\n", 3, './event.log');
 
-/* Check for empty file size */
+  /* Check for empty file size */
   if (filesize("../rec/$r") < 100) { 
     unlink("../rec/$r");
-
 error_log ("unlink zero length : " . $r . "\r\n", 3, './event.log');
 }
 
-  /* Check for old files and delete */
-  removeFiles ("../rec/outbound/");
-  removeFiles ("../rec/inbound/");
-  removeFiles ("../rec/1001/");
-  removeFiles ("../rec/1002/");
-  removeFiles ("../rec/1003/");
-  removeFiles ("../rec/1004/");
-  removeFiles ("../rec/1005/");
-  removeFiles ("../rec/1006/");
-  removeFiles ("../rec/1008/");
-  removeFiles ("../rec/1009/");
+/* Check for old files and delete */
+removeFiles ("../rec/outbound/");
+removeFiles ("../rec/inbound/");
+removeFiles ("../rec/1001/");
+removeFiles ("../rec/1002/");
+removeFiles ("../rec/1003/");
+removeFiles ("../rec/1004/");
+removeFiles ("../rec/1005/");
+removeFiles ("../rec/1006/");
+removeFiles ("../rec/1007/");
+removeFiles ("../rec/1008/");
+removeFiles ("../rec/1009/");
+
 
 function removeFiles($path) 
 {
-	# Set number of days to keep recording
 	$days = 10;   
-	
+
 error_log ("Look in path : " . $path . "\r\n", 3, './event.log');
-	
 	// Open the directory  
 	if ($handle = opendir($path))  
 	{  
