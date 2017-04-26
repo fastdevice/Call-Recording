@@ -5,17 +5,25 @@
   $putdata = fopen("php://input", "r");
 
   # Get REQUEST Data
-  $r = \filter_input(\INPUT_GET, "recording", FILTER_SANITIZE_STRING); 
+  $rec = \filter_input(\INPUT_GET, "recording", FILTER_SANITIZE_STRING); 
   $ext = \filter_input(\INPUT_GET, "callflow", FILTER_SANITIZE_STRING); 
 
 error_log ("REQUEST Data recording : " . $r . "\r\n", 3, './event.log');
 error_log ("REQUEST Data callflow : " . $ext . "\r\n", 3, './event.log');
+
+  $r = $ext . $rec;
+
+error_log ("Directory : " . $r . "\r\n", 3, './event.log');
   
   # Regex Match String
-  # $re = '/(10..\/call_recording_(.+)\.mp3)|(inbound\/call_recording_(.+)\.mp3)|(outbound\/call_recording_(.+)\.mp3)/';
-  $re = '/(call_recording_(.+)\.mp3)|(inbound\/call_recording_(.+)\.mp3)|(outbound\/call_recording_(.+)\.mp3)/';
-  preg_match_all($re, $r, $matches, PREG_SET_ORDER,0);
-  $r = $ext . $matches[0][0];
+  $re = '/(10..\/call_recording_(.+)\.mp3)|(inbound\/call_recording_(.+)\.mp3)|(outbound\/call_recording_(.+)\.mp3)/';
+  if ( preg_match_all($re, $r, $matches, PREG_SET_ORDER,0) ) {
+    $r = $matches[0][0];
+  } 
+  else {
+      error_log ("Error Bad Match : " . $r . "\r\n", 3, './event.log');
+      exit(1);
+  } 
 
 error_log ("Audio Filename : " . $matches[0][0] . "\r\n", 3, './event.log');
 error_log ("Directory : " . $r . "\r\n", 3, './event.log');
