@@ -19,14 +19,12 @@ error_log ("Directory : " . $r . "\r\n", 3, './event.log');
   $re = '/(10..\/call_recording_(.+)\.mp3)|(inbound\/call_recording_(.+)\.mp3)|(outbound\/call_recording_(.+)\.mp3)/';
   if ( preg_match_all($re, $r, $matches, PREG_SET_ORDER,0) ) {
     $r = $matches[0][0];
+    error_log ("Directory : " . $r . "\r\n", 3, './event.log');
   } 
   else {
       error_log ("Error Bad Match : " . $r . "\r\n", 3, './event.log');
       exit(1);
   } 
-
-error_log ("Audio Filename : " . $matches[0][0] . "\r\n", 3, './event.log');
-error_log ("Directory : " . $r . "\r\n", 3, './event.log');
 
   /* Open a file for writing */
  // $fp = fopen("../$r", "w");
