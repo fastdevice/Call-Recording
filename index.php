@@ -13,7 +13,7 @@
 
 error_log ("REQUEST Data recording : " . $rec . "\r\n", 3, './event.log');
 error_log ("REQUEST Data callflow : " . $ext . "\r\n", 3, './event.log');
-
+  /* Assemble the directory path and filename */
   $r = $ext . $rec;
 
 error_log ("Match String : " . $r . "\r\n", 3, './event.log');
@@ -31,7 +31,6 @@ error_log ("Match String : " . $r . "\r\n", 3, './event.log');
   } 
 
   /* Open a file for writing */
- // $fp = fopen("../$r", "w");
   $fp = fopen("../rec/$r", "w");
 
   /* Read the data 1 KB at a time and write to the file */
