@@ -16,7 +16,7 @@
   $caller_id =      \filter_input(\INPUT_GET, "caller_id_number", FILTER_SANITIZE_STRING);
   $call_id =        \filter_input(\INPUT_GET, "call_id", FILTER_SANITIZE_STRING);
   $cdr_id =         \filter_input(\INPUT_GET, "cdr_id", FILTER_SANITIZE_STRING);
-  $interaction_id = \filter_input(\INPUT_GET, "caller_id_number", FILTER_SANITIZE_STRING);
+  $interaction_id = \filter_input(\INPUT_GET, "interaction_id", FILTER_SANITIZE_STRING);
   $account_id =     \filter_input(\INPUT_GET, "account_id", FILTER_SANITIZE_STRING);
   
   /* Custom REQUEST Data, sub-directory to place recordings; 
