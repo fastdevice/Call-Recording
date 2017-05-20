@@ -63,12 +63,13 @@ error_log ("Match String : " . $r . "\r\n", 3, './event.log');
   /* Close the streams */
   fclose($fp);
   fclose($putdata);
-error_log ("Close file for writing : " . $r. "\r\n", 3, './event.log');
-error_log ("File Size : " . filesize("../rec/$r") . "\r\n", 3, './event.log');
+error_log ("Close file for writing : " . $r . "\r\n", 3, './event.log');
+error_log ("File Size : " . filesize($rootdir . $r) . "\r\n", 3, './event.log');
 
-  /* Check for empty file size */
-  if (filesize("../rec/$r") < 100) { 
-    unlink("../rec/$r");
+  /* Unlink files that don't meet min. filesize limit.
+     filesize is subjective, feel free to change */
+  if (filesize($rootdir . $r) < 51200) { 
+    unlink($rootdir . $r);
 error_log ("unlink zero length : " . $r . "\r\n", 3, './event.log');
 }
 
