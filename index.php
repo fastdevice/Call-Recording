@@ -37,7 +37,7 @@ error_log ("    REQUEST Data account_id : " . $account_id . "\r\n", 3, './event.
 }
 
   /* Assemble the sub-directory path and raw filename from REQUEST Data recording, as recording also contains the from info */
-  $r = $ext . $rec;
+  $r = $ext . '/' . $rec;
 
 error_log ("Match String : " . $r . "\r\n", 3, './event.log');
   
