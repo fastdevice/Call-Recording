@@ -14,6 +14,7 @@
   $rec =            \filter_input(\INPUT_GET, "recording", FILTER_SANITIZE_STRING); 
   $to =             \filter_input(\INPUT_GET, "to", FILTER_SANITIZE_STRING);
   $from =           \filter_input(\INPUT_GET, "from", FILTER_SANITIZE_STRING);
+  $caller_name =    \filter_input(\INPUT_GET, "caller_id_name", FILTER_SANITIZE_STRING);
   $caller_id =      \filter_input(\INPUT_GET, "caller_id_number", FILTER_SANITIZE_STRING);
   $call_id =        \filter_input(\INPUT_GET, "call_id", FILTER_SANITIZE_STRING);
   $cdr_id =         \filter_input(\INPUT_GET, "cdr_id", FILTER_SANITIZE_STRING);
@@ -30,6 +31,8 @@ if(debug) {
 error_log ("      REQUEST Data callflow : " . $ext . "\r\n", 3, './event.log');
 error_log ("     REQUEST Data recording : " . $rec . "\r\n", 3, './event.log');
 error_log ("            REQUEST Data to : " . $to . "\r\n", 3, './event.log');
+error_log ("          REQUEST Data from : " . $from . "\r\n", 3, './event.log');
+error_log ("   REQUEST Data caller_name : " . $caller_id_name . "\r\n", 3, './event.log');
 error_log ("     REQUEST Data caller_id : " . $caller_id . "\r\n", 3, './event.log');
 error_log ("       REQUEST Data call_id : " . $call_id . "\r\n", 3, './event.log');
 error_log ("        REQUEST Data cdr_id : " . $cdr_id . "\r\n", 3, './event.log');
