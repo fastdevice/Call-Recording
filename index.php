@@ -13,6 +13,7 @@
   # Get REQUEST Data
   $rec =            \filter_input(\INPUT_GET, "recording", FILTER_SANITIZE_STRING); 
   $to =             \filter_input(\INPUT_GET, "to", FILTER_SANITIZE_STRING);
+  $from =           \filter_input(\INPUT_GET, "from", FILTER_SANITIZE_STRING);
   $caller_id =      \filter_input(\INPUT_GET, "caller_id_number", FILTER_SANITIZE_STRING);
   $call_id =        \filter_input(\INPUT_GET, "call_id", FILTER_SANITIZE_STRING);
   $cdr_id =         \filter_input(\INPUT_GET, "cdr_id", FILTER_SANITIZE_STRING);
